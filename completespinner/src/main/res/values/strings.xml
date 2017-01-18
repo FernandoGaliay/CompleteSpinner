@@ -1,0 +1,11 @@
+<resources>
+    <!-- SPINNER -->
+    <string name="spinner_hint_default">Select one option</string>
+
+    <!-- POPUP -->
+    <string name="popup_choose_one">Select one option</string>
+    <string name="popup_accept">Accept</string>
+    <string name="popup_delete">Delete</string>
+    <string name="multi_popup_selected_items">%1$d item/s selected</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="CompleteSpinner" parent="@android:style/Widget.Holo.Light.Spinner">
+
+    </style>
+
+    <style name="AlertDialogTheme" parent="android:Theme.Dialog">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+</resources>

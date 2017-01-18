@@ -1,0 +1,20 @@
+This file describes the changes along this project
+
+VERSION 1.1.1
+- Enable or disable buttons in the dialog
+- Add new constructor to CompleteSpinner to support custom rows in the dialog. 
+- Add new adapter that extends of ArrayAdapter, to simplify the use of custom dialogs.
+
+VERSION 1.1.0
+- Add Multiselectable spinner: CompleteMultiSpinner
+
+VERSION 1.0.4	 
+- Fix: reset values when new instance is created
+- Change name of the method setAdapter to setData
+- Add clear selected item row in dropdown.
+	 
+VERSION 1.0.3	 
+- Add set selected object from data list.
+- Add new callback method: onAcceptedItem.
+- Add new parameters to callbacks methoms.
+- Minor fixes
