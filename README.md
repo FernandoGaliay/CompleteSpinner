@@ -4,4 +4,3 @@ Development of Android Spinner that implements **hint text**, **dropdown/popup m
 
 Changelog
 --------
-* [Click here to see details](http://git.sdos.es/android/completespinner/blob/master/changelog.txt)
