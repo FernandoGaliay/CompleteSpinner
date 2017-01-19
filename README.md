@@ -12,7 +12,7 @@ Features
 
 Changelog
 --------
-* [Click here to see details](http://git.sdos.es/android/completespinner/blob/master/changelog.txt)
+// TODO 
 
 Considerations and code
 --------
