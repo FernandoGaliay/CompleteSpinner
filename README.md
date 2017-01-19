@@ -46,7 +46,7 @@ Building a spinner with default implementation.
 ```java
   CompleteSpinner<SpinnerVO> completeSpinnerDropDown = new CompleteSpinner<SpinnerVO>(this, SpinnerMode.MODE_DROPDOWN);
   completeSpinnerDropDown.setHint(R.string.hint);
-  completeSpinnerDropDown.setAdapter(getList());
+  completeSpinnerDropDown.setData(getList());
   llSpinnerContainerDropDown.addView(completeSpinnerDropDown.getView());
 ```
  
@@ -89,7 +89,7 @@ LinearLayout llSpinnerContainer = (LinearLayout) findViewById(R.id.ll_spinner_co
         
 final CompleteSpinner<SpinnerVO> completeSpinner = new CompleteSpinner<SpinnerVO>(this, SpinnerMode.MODE_POPUP);
 completeSpinner.setView(llSpinnerContainer, actSpinner);
-completeSpinner.setAdapter(getList());
+completeSpinner.setData(getList());
 ```
 
 **Callbacks**
