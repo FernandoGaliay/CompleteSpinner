@@ -37,6 +37,7 @@ To set (explicity) any object as selected in the spinner, you must to override *
     }
 ```
 
+---------------
 
 **COMPLETE SPINNER**
 
@@ -127,6 +128,7 @@ Setter and getter of the view of the spinner.
 * setHint(String hint):
 Sets hint to the spinner.
 
+------------------
 
 **COMPLETEMULTISPINNER**
 
