@@ -23,7 +23,7 @@ CompleteSpinner builds the string value of the object shown in the row view, usi
 ```java
     @Override
     public String toString() {
-        return getTitle();
+        // Overrides toString method
     }
 ```
 
@@ -33,7 +33,7 @@ To set (explicity) any object as selected in the spinner, you must to override *
 ```java
     @Override
     public boolean equals(Object o) {
-        return o instanceof SpinnerVO && this.getId().equals(((SpinnerVO)o).getId());
+        // Overrides equals method
     }
 ```
 
