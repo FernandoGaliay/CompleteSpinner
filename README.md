@@ -128,6 +128,19 @@ Setter and getter of the view of the spinner.
 * setHint(String hint):
 Sets hint to the spinner.
 
+* removeSelectedItem():
+Removes selected item of the data list of the spinner.
+
+* getSelectedItem() / setSelectedItem(Object data):
+Setter and getter of the selected item of the data list of the spinner.
+
+* setEnabled(Boolean enable) / isEnabled():
+Setter and getter to enable the spinner.
+
+* addClearViewInDropdown(Object data):
+If spinner is in dropdown mode, adds a fake object at the begining of the dropdown to clear the selected item.
+
+
 ------------------
 
 **COMPLETEMULTISPINNER**
@@ -227,15 +240,3 @@ Setter and getter of the selected items of the data list of the spinner.
 
 * setEnabled(Boolean enable) / isEnabled():
 Setter and getter to enable the spinner.
-
-* removeSelectedItem():
-Removes selected item of the data list of the spinner.
-
-* getSelectedItem() / setSelectedItem(Object data):
-Setter and getter of the selected item of the data list of the spinner.
-
-* setEnabled(Boolean enable) / isEnabled():
-Setter and getter to enable the spinner.
-
-* addRemoveSelectedItemInDropdown(Object data):
-If spinner is in dropdown mode, adds fake object at the begining of the dropdown to clear the selected item.
