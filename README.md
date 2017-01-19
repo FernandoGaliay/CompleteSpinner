@@ -116,30 +116,14 @@ Adding spinner callback to handle the following events: item selection, delete i
 
 **Public methods**
 
-* setData(List<Object> data):
-Sets the list of the data to build the spinner.
-
-* setCallback(Callback<Object> callback):
-Sets callback to handle differents events of the spinner.
-
-* setView(View view, AutocompleteTextView atcTextView) / getView():
-Setter and getter of the view of the spinner.
-
-* setHint(String hint):
-Sets hint to the spinner.
-
-* removeSelectedItem():
-Removes selected item of the data list of the spinner.
-
-* getSelectedItem() / setSelectedItem(Object data):
-Setter and getter of the selected item of the data list of the spinner.
-
-* setEnabled(Boolean enable) / isEnabled():
-Setter and getter to enable the spinner.
-
-* addClearViewInDropdown(Object data):
-If spinner is in dropdown mode, adds a fake object at the begining of the dropdown to clear the selected item.
-
+* setData(List<Object> data): Sets the list of the data to build the spinner.
+* setCallback(Callback<Object> callback): Sets callback to handle differents events of the spinner.
+* setView(View view, AutocompleteTextView atcTextView) / getView(): Setter and getter of the view of the spinner.
+* setHint(String hint): Sets hint to the spinner.
+* removeSelectedItem(): Removes selected item of the data list of the spinner.
+* getSelectedItem() / setSelectedItem(Object data): Setter and getter of the selected item of the data list of the spinner.
+* setEnabled(Boolean enable) / isEnabled(): Setter and getter to enable the spinner.
+* addClearViewInDropdown(Object data): If spinner is in dropdown mode, adds a fake object at the begining of the dropdown to clear the selected item.
 
 ------------------
 
@@ -220,23 +204,10 @@ Adding spinner callback to handle the following events: item selection, delete i
 
 **Public methods**
 
-* setData(List<Object> data):
-Sets the list of the data to build the spinner.
-
-* setCallback(Callback<Object> callback):
-Sets callback to handle differents events of the spinner.
-
-* setView(View view, TextView atcTextView) / getView():
-Setter and getter of the view of the spinner.
-
-* setHint(String hint):
-Sets hint to the spinner.
-
-* removeSelectedItemS():
-Removes selected item of the data list of the spinner.
-
-* getSelectedItemS() / setSelectedItem(List<Object> data):
-Setter and getter of the selected items of the data list of the spinner.
-
-* setEnabled(Boolean enable) / isEnabled():
-Setter and getter to enable the spinner.
+* setData(List<Object> data): Sets the list of the data to build the spinner.
+* setCallback(Callback<Object> callback): Sets callback to handle differents events of the spinner.
+* setView(View view, TextView atcTextView) / getView(): Setter and getter of the view of the spinner.
+* setHint(String hint): Sets hint to the spinner. 
+* removeSelectedItemS(): Removes selected item of the data list of the spinner. 
+* getSelectedItemS() / setSelectedItem(List<Object> data): Setter and getter of the selected items of the data list of the spinner. 
+* setEnabled(Boolean enable) / isEnabled(): Setter and getter to enable the spinner.
