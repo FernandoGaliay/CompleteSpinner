@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         // Setting data
         completeSpinnerDropDown.setData(getList());
         // Adding remove element in the dropdown
-        completeSpinnerDropDown.addClearViewInDropdown(new SpinnerVO(0, "Borrar seleccionado"));
+        completeSpinnerDropDown.addClearViewInDropdown(new SpinnerVO(-1, getString(R.string.popup_delete)));
         // Setting callbacks
         completeSpinnerDropDown.setCallback(new Callback<SpinnerVO>() {
             @Override
