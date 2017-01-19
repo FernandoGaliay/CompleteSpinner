@@ -5,10 +5,10 @@ Development of Android Spinner that implements **hint text**, **dropdown/popup m
 Features
 --------
 * Customization of the spinner view.
-* It is not needed to implement adapter for custom objects. 
+* No need to implement adapter for custom objects. 
 * Allows hint text.
 * Handles dropdown or dialog mode.
-* Customization of the spinner dialog.
+* Customization of the spinner dialog/dropdown.
 
 Changelog
 --------
