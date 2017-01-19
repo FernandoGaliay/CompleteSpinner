@@ -37,7 +37,7 @@ To set (explicity) any object as selected in the spinner, you must to override *
     }
 ```
 
----------------
+--------
 
 **COMPLETE SPINNER**
 
@@ -125,7 +125,8 @@ Adding spinner callback to handle the following events: item selection, delete i
 * setEnabled(Boolean enable) / isEnabled(): Setter and getter to enable the spinner.
 * addClearViewInDropdown(Object data): If spinner is in dropdown mode, adds a fake object at the begining of the dropdown to clear the selected item.
 
-------------------
+
+--------
 
 **COMPLETEMULTISPINNER**
 
