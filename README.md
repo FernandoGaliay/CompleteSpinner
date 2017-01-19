@@ -127,6 +127,7 @@ Setter and getter of the view of the spinner.
 * setHint(String hint):
 Sets hint to the spinner.
 
+
 **COMPLETEMULTISPINNER**
 
 Building a multi-spinner with default implementation.
