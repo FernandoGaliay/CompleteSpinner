@@ -2,9 +2,6 @@ package caparso.es.completemultispinner.util;
 
 import java.util.List;
 
-/**
- * Created by fernando.galiay on 04/12/2015.
- */
 public class ConverterUtil {
 
     public static <T> String[] convertListToArray(List<T> dataList){

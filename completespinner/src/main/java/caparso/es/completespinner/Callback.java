@@ -4,9 +4,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.annotation.Nullable;
 
-/**
- * Created by fernando.galiay on 14/07/2015.
- */
 public interface Callback<T> {
 
     /**

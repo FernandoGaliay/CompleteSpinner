@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,9 +18,6 @@ import java.util.List;
 import caparso.es.completemultispinner.util.ConverterUtil;
 import caparso.es.completespinner.R;
 
-/**
- * Created by fernando.galiay on 04/12/2015.
- */
 public class CompleteMultiSpinner<T> extends View implements View.OnClickListener {
 
     /**
@@ -33,37 +31,37 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     private View view;
 
     /**
-     * AutocompleteTextView inside spinner view. This view shows selected item.
+     * AutocompleteTextView inside the spinner view.
      */
     private TextView textView;
 
     /**
-     * Array Adapter to build the data list of the spinner.
+     * Array Adapter to build the dialog / dropdown view.
      */
     private ArrayAdapter<T> adapter;
 
     /**
-     * Alert dialog builder for dialog mode.
+     * Alert dialog builder.
      */
     private AlertDialog.Builder alertBuilder;
 
     /**
-     * Callback to retrieve spinner events.
+     * Callback to retrieve the spinner events.
      */
     private Callback<T> callback;
 
     /**
-     * Original data list to build the spinner.
+     * List to build the spinner.
      */
     private List<T> spinnerData;
 
     /**
-     * List to persist the checked value of each item in the data list of the spinner.
+     * List to persist the checked value of each item.
      */
     private boolean[] selectedItemList;
 
     /**
-     * Enable or disable click events on spinner.
+     * Field value to enable or disable click events.
      */
     private Boolean enable = true;
 
@@ -80,7 +78,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Set a custom view for the spinner.
+     * Set sa custom view for the spinner.
      *
      * @param view
      * @param textView
@@ -92,7 +90,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Build a default view for the spinner.
+     * Builds a default view for the spinner.
      */
     private void buildDefaultSpinnerView() {
         LayoutInflater inflater = (LayoutInflater) context
@@ -104,7 +102,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Set item as selected.
+     * Sets one item as selected.
      *
      * @param selectedItem
      */
@@ -116,7 +114,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Return the amount of selected items in the data list of the spinner.
+     * Returns the amount of the selected items.
      *
      * @return
      */
@@ -131,7 +129,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Prepare right string format to set the text of the selected items.
+     * Builds a string with the selected items.
      *
      * @return
      */
@@ -149,7 +147,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Prepare view elements to build the spinner. AutoCompleteTextView must be not focusable, no suggestion type and perform the viewgroup click.
+     *  Setups the views to build the spinner.
      */
     private void setupViews(final View view, TextView textView) {
         if (textView.getHint() == null || "".equals(textView.getHint())) {
@@ -167,7 +165,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Remove selected item and clear data of the spinner.
+     * Removes the selected item and clear the related data.
      */
     private void removeSelectedItems(@Nullable DialogInterface dialog) {
         if (callback != null) {
@@ -182,16 +180,16 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Remove selected item and clear data of the spinner.
+     * Removes the selected item and clear the related data.
      */
     public void removeSelectedItems() {
         removeSelectedItems(null);
     }
 
     /**
-     * Set the data list for the adapter of the spinner.
+     * Builds an adapter with the item list.
      *
-     * @param list list with the objects that are going to be shown in the spinner.
+     * @param list Objects that are going to be shown in the spinner.
      */
     public void setData(List<T> list) {
         spinnerData = list;
@@ -204,15 +202,20 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
         view.setOnClickListener(this);
     }
 
+    /**
+     * Invoked when the spinner view is clicked.
+     *
+     * @param v Viewgroup of the spinner.
+     */
     @Override
     public void onClick(View v) {
         buildSpinnerPopup(adapter);
     }
 
     /**
-     * Build the popup with the items list to show on click event. Just single choice option.
+     * Builds the dialog that contains the items list. Just single choice option.
      *
-     * @param adapter Popup adapter with the list of options.
+     * @param adapter Dialog adapter.
      */
     private void buildSpinnerPopup(final ArrayAdapter<T> adapter) {
         alertBuilder = new AlertDialog.Builder(context);
@@ -261,6 +264,10 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
         }
     }
 
+    /**
+     * Returns the list of the selected items.
+     * @return List of the selected items.
+     */
     public List<T> getSelectedItems() {
         List<T> itemList = new ArrayList<>();
         for (int index = 0; index < spinnerData.size(); index++) {
@@ -273,7 +280,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Return the container view of the spinner.
+     * Returns the view of the spinner.
      *
      * @return
      */
@@ -282,16 +289,16 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Set hint text to the Spinner
+     * Sets the hint text for the Spinner
      *
-     * @param resId id of the resource string.
+     * @param resId Id of the resource string.
      */
-    public void setHint(int resId) {
+    public void setHint(@StringRes int resId) {
         textView.setHint(context.getString(resId));
     }
 
     /**
-     * Set hint text to the Spinner
+     * Sets the hint text for the Spinner
      *
      * @param hint String of the hint.
      */
@@ -299,12 +306,10 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
         textView.setHint(hint);
     }
 
-
-
     /**
-     * Get is spinner is enabled or disabled.
+     * Returns if the spinner is enabled or disabled.
      *
-     * @return
+     * @return True if the spinner is enabled.
      */
     @Override
     public boolean isEnabled() {
@@ -312,7 +317,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Set is spinner is enabled or disabled.
+     * Sets the spinner to enabled or disabled.
      *
      * @return
      */
@@ -323,7 +328,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Set spinner callback.
+     * Sets the spinner callback.
      *
      * @param callback
      */
@@ -332,7 +337,7 @@ public class CompleteMultiSpinner<T> extends View implements View.OnClickListene
     }
 
     /**
-     * Get spinner callback.
+     * Gets the spinner callback.
      *
      * @return
      */

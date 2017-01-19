@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -32,22 +33,22 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     private View view;
 
     /**
-     * AutocompleteTextView inside spinner view. This view shows selected item.
+     * AutocompleteTextView inside the spinner view. This view shows the selected item.
      */
     private AutoCompleteTextView textView;
 
     /**
-     * Array Adapter to build the data list of the spinner.
+     * Array Adapter to build the dialog / dropdown view.
      */
     private ArrayAdapter<T> adapter;
 
     /**
-     * Alert dialog builder for dialog mode.
+     * Alert dialog builder.
      */
     private AlertDialog.Builder alertBuilder;
 
     /**
-     * Selected object of the data list.
+     * Selected object.
      */
     private T selectedItem;
 
@@ -67,23 +68,29 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     private Callback<T> callback;
 
     /**
-     * Enable or disable click events on spinner.
+     * Boolean field to enable or disable click events.
      */
     private Boolean enable = true;
 
     /**
-     * Original data list to build the spinner.
+     * List to build the spinner.
      */
     private List<T> spinnerData;
 
     /**
-     * Object to clear selected item in dropdown mode.
+     * Object to use in the clear view of the drowdown.
      */
     private T clearItemDropdown;
 
+    /**
+     * Boolean field to enable or disable accept button
+     */
     private Boolean acceptButtonEnabled = true;
 
-    private Boolean cancelButtonEnabled = true;
+    /**
+     * Boolean field to enable or disable clean button
+     */
+    private Boolean cleanButtonEnabled = true;
 
     /**
      * Default constructor
@@ -114,7 +121,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Set a custom view for the spinner.
+     * Sets a custom view for the spinner.
      *
      * @param view
      * @param textView
@@ -126,9 +133,9 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Set the data list for the adapter of the spinner.
+     * Builds an adapter with the item list.
      *
-     * @param list list with the objects that are going to be shown in the spinner.
+     * @param list Objects that are going to be shown in the spinner.
      */
     public void setData(List<T> list) {
         spinnerData = list;
@@ -146,9 +153,9 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Invoked when spinner viewgroup is clicked.
+     * Invoked when the spinner view is clicked.
      *
-     * @param v viewgroup of the spinner.
+     * @param v Viewgroup of the spinner.
      */
     @Override
     public void onClick(View v) {
@@ -160,21 +167,21 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Enable dropdown mode.
+     * Enables dropdown mode.
      */
     public void setSpinnerModeDrop() {
         spinnerMode = SpinnerMode.DROPDOWN;
     }
 
     /**
-     * Enable popup mode.
+     * Enables popup mode.
      */
     public void setSpinnerModePopup() {
         spinnerMode = SpinnerMode.POPUP;
     }
 
     /**
-     * Remove selected item and clear data of the spinner.
+     * Removes the selected item and clear the related data.
      */
     private void removeSelectedItem(@Nullable DialogInterface dialog) {
         if (callback != null) {
@@ -189,25 +196,25 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Remove selected item and clear data of the spinner.
+     * Removes the selected item and clear the realated data.
      */
     public void removeSelectedItem() {
         removeSelectedItem(null);
     }
 
     /**
-     * Return selected item of the spinner.
+     * Returns the selected item.
      *
-     * @return selected item
+     * @return Selected item
      */
     public T getSelectedItem() {
         return selectedItem;
     }
 
     /**
-     * Set item as selected.
+     * Sets one item as selected.
      *
-     * @param selectedItem
+     * @param selectedItem Selected item.
      */
     private void setSelectedItem(T selectedItem, int position) {
         this.selectedItem = selectedItem;
@@ -216,7 +223,6 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
         if (SpinnerMode.POPUP == spinnerMode) {
             textView.setText(selectedItem.toString());
         } else {
-            // Si existe elemento para borrar seleccion, hay que restar uno a la posicion del callback.
             if (clearItemDropdown != null) {
                 userPosition--;
             }
@@ -229,9 +235,9 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Set one of the adapter items as selected. If item are null or not contained inside the adapter list, has not effect. EQUALS must be overrided.
+     * Sets one item as selected. EQUALS must be overrided.
      *
-     * @param selectedItem
+     * @param selectedItem Selected item.
      */
     public void setSelectedItem(@NonNull T selectedItem) {
         if (selectedItem != null) {
@@ -247,48 +253,48 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Return if dropdown of the spinner is showing
+     * Returns if the dropdown is showing
      *
-     * @return true if dropdown is showing, false in other case.
+     * @return True if dropdown is showing.
      */
     public Boolean isDropDownShowing() {
         return textView.isPopupShowing();
     }
 
     /**
-     * Show the dropdown list of the Spinner.
+     * Shows the dropdown list.
      */
     public void showDropDown() {
         textView.showDropDown();
     }
 
     /**
-     * Close the dropdown list of the Spinner.
+     * Closes the dropdown list.
      */
     public void dismissDropDown() {
         textView.dismissDropDown();
     }
 
     /**
-     * Return the container view of the spinner.
+     * Returns the view of the spinner.
      *
-     * @return
+     * @return The view of the spinner.
      */
     public View getView() {
         return view;
     }
 
     /**
-     * Set hint text to the Spinner
+     * Sets the hint text for the Spinner
      *
-     * @param resId id of the resource string.
+     * @param resId Id of the resource string.
      */
-    public void setHint(int resId) {
+    public void setHint(@StringRes int resId) {
         textView.setHint(context.getString(resId));
     }
 
     /**
-     * Set hint text to the Spinner
+     * Sets the hint text for the Spinner
      *
      * @param hint String of the hint.
      */
@@ -297,7 +303,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Build a default view for the spinner.
+     * Builds a default view for the spinner.
      */
     private void buildDefaultSpinnerView() {
         LayoutInflater inflater = (LayoutInflater) context
@@ -309,9 +315,9 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Build the popup with the items list to show on click event. Just single choice option.
+     * Builds the dialog that contains the items list. Just single choice option.
      *
-     * @param adapter Popup adapter with the list of options.
+     * @param adapter Dialog adapter.
      */
     private void buildSpinnerPopup(final ArrayAdapter<T> adapter) {
         alertBuilder = new AlertDialog.Builder(context);
@@ -332,7 +338,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
                     dialog.dismiss();
                 }
             });
-        if (cancelButtonEnabled)
+        if (cleanButtonEnabled)
             alertBuilder.setNegativeButton(R.string.popup_delete, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -345,20 +351,18 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Build dropdown items list to show on click event. Just single choice option.
+     * Builds the dropdown items list. Just single choice option.
      *
-     * @param adapter Dropdown adapter with the list of options.
+     * @param adapter Dropdown adapter.
      */
     private void buildSpinnerDropDown(final ArrayAdapter<T> adapter) {
         textView.setAdapter(adapter);
         textView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Si existe el elemento para borrar y se presiona su posicion. Se elimina la seleccion.
                 if (clearItemDropdown != null && position == 0) {
                     removeSelectedItem();
                 }
-                // En cualquier otro caso, se selecciona el elemento.
                 else {
                     setSelectedItem(adapter.getItem(position), position);
                 }
@@ -369,7 +373,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Prepare view elements to build the spinner. AutoCompleteTextView must be not focusable, no suggestion type and perform the viewgroup click.
+     * Setups the views to build the spinner.
      */
     private void setupViews(final View view, AutoCompleteTextView autoCompleteTextView) {
         if (autoCompleteTextView.getHint() == null || "".equals(autoCompleteTextView.getHint())) {
@@ -389,11 +393,11 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Add extra item in the drowdown list to clear selected item.
+     * Adds an extra item in the drowdown list, to clear the selected item.
      *
-     * @param clearItem
+     * @param clearItem Object to print in the clear view
      */
-    public void addRemoveSelectedItemInDropdown(@NonNull T clearItem) {
+    public void addClearViewInDropdown(@NonNull T clearItem) {
         if (SpinnerMode.DROPDOWN == spinnerMode && spinnerData != null && !spinnerData.isEmpty()) {
             clearItemDropdown = clearItem;
             spinnerData.add(0, clearItemDropdown);
@@ -402,7 +406,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Set spinner callback.
+     * Sets the spinner callback.
      *
      * @param callback
      */
@@ -411,18 +415,18 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Get spinner callback.
+     * Returns the spinner callback.
      *
-     * @return
+     * @return The spinner callback.
      */
     public Callback<T> getCallback() {
         return callback;
     }
 
     /**
-     * Get is spinner is enabled or disabled.
+     * Returns if the spinner is enabled or disabled.
      *
-     * @return
+     * @return True if the spinner is enabled.
      */
     @Override
     public boolean isEnabled() {
@@ -430,9 +434,7 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
     }
 
     /**
-     * Set is spinner is enabled or disabled.
-     *
-     * @return
+     * Sets the spinner to enabled or disabled.
      */
     @Override
     public void setEnabled(boolean enable) {
@@ -440,19 +442,39 @@ public class CompleteSpinner<T> extends View implements View.OnClickListener {
         this.enable = enable;
     }
 
+    /**
+     * Returns if accept button is enabled.
+     *
+     * @return True if accept button is enabled.
+     */
     public Boolean getAcceptButtonEnabled() {
         return acceptButtonEnabled;
     }
 
-    public Boolean getCancelButtonEnabled() {
-        return cancelButtonEnabled;
+    /**
+     * Returns if clean button is enabled.
+     *
+     * @return True if clean button is enabled
+     */
+    public Boolean getCleanButtonEnabled() {
+        return cleanButtonEnabled;
     }
 
+    /**
+     * Sets the accept button to enable or disable.
+     *
+     * @param acceptButtonEnabled True if the accept button is going to be enabled.
+     */
     public void setAcceptButtonEnabled(Boolean acceptButtonEnabled) {
         this.acceptButtonEnabled = acceptButtonEnabled;
     }
 
-    public void setCancelButtonEnabled(Boolean cancelButtonEnabled) {
-        this.cancelButtonEnabled = cancelButtonEnabled;
+    /**
+     * Sets the clean button to enable or disable.
+     *
+     * @param cleanButtonEnabled True if the clean button is going to be enabled.
+     */
+    public void setCleanButtonEnabled(Boolean cleanButtonEnabled) {
+        this.cleanButtonEnabled = cleanButtonEnabled;
     }
 }

@@ -7,9 +7,6 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
-/**
- * Created by fernando.galiay on 21/06/2016.
- */
 public class SpinnerAdapter<Object> extends ArrayAdapter<Object> {
 
     private OnViewCreated onViewCreated;
